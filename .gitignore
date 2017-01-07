@@ -1,6 +1,6 @@
 #data file for this project
-captures/
 config.ini
+readings.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
