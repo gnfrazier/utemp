@@ -21,7 +21,8 @@ def convert(temp):
 
     return tempf
 
-main():
+
+def main():
     data = get_measurments()
 
     print('It is {} degrees at {} percent humidity.'.format(data[0], data[1])
