@@ -4,16 +4,16 @@
 import dht
 import machine
 
-dht = dht.DH22(machine.Pin(4))
+d = dht.DHT22(machine.Pin(4))
 
 
-def get_measurments():
-    dht.measure()
-    tempc = dht.temperature()
-    hum = dht.humidity()
+def get_measurements():
+    d.measure()
+    tempc = d.temperature()
+    hum = d.humidity()
     temp = convert(tempc)
 
-    return (temp, humidity)
+    return (temp, hum)
 
 
 def convert(temp):
@@ -23,9 +23,9 @@ def convert(temp):
 
 
 def main():
-    data = get_measurments()
+    data = get_measurements()
 
-    print('It is {} degrees at {} percent humidity.'.format(data[0], data[1])
+    print('It is {} degrees at {} percent humidity.'.format(data[0], data[1]))
 
 if __name__ == '__main__':
     main()
