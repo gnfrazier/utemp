@@ -27,7 +27,6 @@ def convert(temp):
 def send(data):
     config = cfg.read_cfg('config.json')
     subject = str(config['ptopic'])
-    subject = 'MQTT'
     server = str(config['server'])
     note = str(data)
 
