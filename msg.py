@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 from umqtt.simple import MQTTClient
 
 
@@ -24,11 +26,11 @@ def rcv(server="localhost", topic="MQTT"):
             c.wait_msg()
         else:
             # Non-blocking wait for message
-            c.check_msg()
+            # c.check_msg()
             # Need to sleep to avoid 100% CPU usage (in a real
             # app other useful actions would be performed instead)
-            time.sleep(1)
-
+            # time.sleep(1)
+            pass
     c.disconnect()
 
 
