@@ -3,6 +3,8 @@
 
 import dht
 import machine
+import msg
+import cfg
 
 d = dht.DHT22(machine.Pin(4))
 
@@ -22,9 +24,19 @@ def convert(temp):
     return tempf
 
 
+def send(data):
+    config = cfg.read_cfg('config.json')
+    subject = str(config['ptopic'])
+    subject = 'MQTT'
+    server = str(config['server'])
+    note = str(data)
+
+    msg.xmt(server=server, topic=subject, note=note)
+
+
 def main():
     data = get_measurements()
-
+    send(data)
     print('It is {} degrees at {} percent humidity.'.format(data[0], data[1]))
 
 if __name__ == '__main__':
